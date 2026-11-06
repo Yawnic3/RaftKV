@@ -1,0 +1,16 @@
+{
+  "id": "node3",
+  "listen": "127.0.0.1:8003",
+  "data_dir": "data/node3",
+  "peers": {
+    "node1": "http://localhost:8001",
+    "node2": "http://localhost:8002",
+    "node3": "http://localhost:8003"
+  },
+  "election_min_ms": 600,
+  "election_max_ms": 1000,
+  "heartbeat_ms": 100,
+  "rpc_timeout_ms": 300,
+  "request_timeout_ms": 3000,
+  "snapshot_threshold": 256
+}

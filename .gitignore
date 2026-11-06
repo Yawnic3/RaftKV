@@ -1,0 +1,8 @@
+.tools/
+.cache/
+bin/
+data/
+go-downloads.json
+*.exe
+*.test
+coverage.out

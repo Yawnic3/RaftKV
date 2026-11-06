@@ -1,0 +1,41 @@
+name: raftkv
+
+x-node: &node
+  build:
+    context: ..
+    dockerfile: deploy/Dockerfile
+  restart: unless-stopped
+  stop_grace_period: 10s
+  healthcheck:
+    test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8000/healthz"]
+    interval: 5s
+    timeout: 2s
+    retries: 3
+
+services:
+  node1:
+    <<: *node
+    command: ["-config", "/config/node1.json"]
+    ports: ["127.0.0.1:8001:8000"]
+    volumes:
+      - ./node1.json:/config/node1.json:ro
+      - node1-data:/data
+  node2:
+    <<: *node
+    command: ["-config", "/config/node2.json"]
+    ports: ["127.0.0.1:8002:8000"]
+    volumes:
+      - ./node2.json:/config/node2.json:ro
+      - node2-data:/data
+  node3:
+    <<: *node
+    command: ["-config", "/config/node3.json"]
+    ports: ["127.0.0.1:8003:8000"]
+    volumes:
+      - ./node3.json:/config/node3.json:ro
+      - node3-data:/data
+
+volumes:
+  node1-data:
+  node2-data:
+  node3-data:

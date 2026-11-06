@@ -1,0 +1,6 @@
+.tools
+.cache
+.git
+bin
+data
+go-downloads.json

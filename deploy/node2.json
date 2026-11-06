@@ -1,0 +1,10 @@
+{
+  "id": "node2",
+  "listen": ":8000",
+  "data_dir": "/data",
+  "peers": {
+    "node1": "http://node1:8000",
+    "node2": "http://node2:8000",
+    "node3": "http://node3:8000"
+  }
+}
